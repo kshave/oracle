@@ -23,25 +23,25 @@ def get_prediction_label(prediction):
     return "label nok"
 
 
-@router.post(
-    "/predict",
-    response_model=MachineLearningResponse,
-    name="predict:get-data",
-)
-async def predict(data_input: MachineLearningDataInput):
-    if not data_input:
-        raise HTTPException(status_code=404, detail="'data_input' argument invalid!")
-    try:
-        data_point = data_input.get_np_array()
-        prediction = get_prediction(data_point)
-        prediction_label = get_prediction_label(prediction)
+# @router.post(
+#     "/predict",
+#     response_model=MachineLearningResponse,
+#     name="predict:get-data",
+# )
+# async def predict(data_input: MachineLearningDataInput):
+#     if not data_input:
+#         raise HTTPException(status_code=404, detail="'data_input' argument invalid!")
+#     try:
+#         data_point = data_input.get_np_array()
+#         prediction = get_prediction(data_point)
+#         prediction_label = get_prediction_label(prediction)
 
-    except Exception as err:
-        raise HTTPException(status_code=500, detail=f"Exception: {err}")
+#     except Exception as err:
+#         raise HTTPException(status_code=500, detail=f"Exception: {err}")
 
-    return MachineLearningResponse(
-        prediction=prediction, prediction_label=prediction_label
-    )
+#     return MachineLearningResponse(
+#         prediction=prediction, prediction_label=prediction_label
+#     )
 
 
 @router.get(
