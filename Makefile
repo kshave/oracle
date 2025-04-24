@@ -21,14 +21,18 @@ endif
 
 all: clean test install run deploy down
 
-venv:
+install-venv:
+	@echo "Creating virtual environment..."
 	uv venv .venv
+	@echo "Virtual environment created."
+
+venv:
+	source .venv/bin/activate
 
 test: venv
 	uv run pytest tests -vv --show-capture=all
 
 install: generate_dot_env venv
-	pip install uv --break-system-packages
 	uv pip install -e ".[dev]"
 
 run: venv

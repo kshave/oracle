@@ -20,9 +20,10 @@ To update your machine learning model, add your `load` and `method` [change here
 
 ## Installation
 
+[uv] is requried for installation.
+
 ```sh
-python -m venv venv
-source venv/bin/activate
+make install-venv
 make install
 ```
 
