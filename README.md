@@ -20,7 +20,7 @@ To update your machine learning model, add your `load` and `method` [change here
 
 ## Installation
 
-[uv] is requried for installation.
+[uv](https://github.com/astral-sh/uv) is requried for installation.
 
 ```sh
 make install-venv
